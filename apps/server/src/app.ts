@@ -1,9 +1,10 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { task } from "./controllers/index.js";
+import { task, auth } from "@/controllers/index.js";
 const app = new Hono();
 
 app.route("/", task);
+app.route("/", auth);
 
 serve(
   {
