@@ -1,12 +1,12 @@
 import { taskService } from "@/services/index.js";
-import { getUserId } from "@/utils/modules/user.js";
+import { getUserId } from "@/utils/modules/auth.js";
 import { Hono } from "hono";
 
 export const task = new Hono().basePath("/task");
 
 task.get("/", async (c) => {
   const tasks = await taskService.getAllTasks(getUserId(c));
-  return c.json(tasks);
+  return c.api.success(tasks);
 });
 
 task.post("/", async (c) => {
@@ -15,7 +15,7 @@ task.post("/", async (c) => {
     ...task,
     userId: getUserId(c),
   });
-  return c.json(res);
+  return c.api.success(res);
 });
 
 task.put("/:id", async (c) => {
@@ -26,10 +26,10 @@ task.put("/:id", async (c) => {
     userId: getUserId(c),
     updatedAt: new Date(),
   });
-  return c.json(res);
+  return c.api.success(res);
 });
 
 task.delete("/:id", async (c) => {
   const res = await taskService.removeTask(+c.req.param("id"), getUserId(c));
-  return c.json(res);
+  return c.api.success(res);
 });

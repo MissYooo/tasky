@@ -6,11 +6,11 @@ export const auth = new Hono().basePath("/auth");
 auth.post("/register", async (c) => {
   const user = await c.req.json();
   const res = await authService.register(user);
-  return c.json(res);
+  return c.api.success(res);
 });
 
 auth.post("/login", async (c) => {
   const user = await c.req.json();
   const res = await authService.login(user);
-  return c.json(res);
+  return c.api.success(res);
 });
