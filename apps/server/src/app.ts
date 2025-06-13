@@ -1,17 +1,12 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { task, auth } from "@/controllers/index.js";
-import { jwt } from "hono/jwt";
+import { jwtMiddleware } from "@/middlewares/index.js";
 const app = new Hono();
 
-app.route("/", task);
 app.route("/", auth);
-app.use(
-  "/*",
-  jwt({
-    secret: "HonoApp",
-  })
-);
+app.use("/*", jwtMiddleware);
+app.route("/", task);
 
 serve(
   {

@@ -3,6 +3,7 @@ import { usersTable } from "@/db/schema.js";
 import { sha256 } from "hono/utils/crypto";
 import { eq } from "drizzle-orm";
 import { sign } from "hono/jwt";
+import { TokenPrivateKey } from "@/middlewares/index.js";
 
 export const authService = {
   register: async (user: typeof usersTable.$inferInsert) => {
@@ -25,7 +26,7 @@ export const authService = {
       .where(eq(usersTable.username, username));
     if (!existingUser) {
       return {
-        msg: "用户不存在",
+        msg: "用户名或密码错误",
       };
     }
 
@@ -33,17 +34,21 @@ export const authService = {
     const passwordMatch = (await sha256(password)) === existingUser.password;
     if (!passwordMatch) {
       return {
-        msg: "密码错误",
+        msg: "用户名或密码错误",
       };
     }
+
     // 生成token
     const token = await sign(
       {
         userId: existingUser.id,
         useName: existingUser.username,
+        // 一小时过期
+        exp: Math.floor(Date.now() / 1000) + 60 * 60,
       },
-      "HonoApp"
+      TokenPrivateKey
     );
+
     return {
       msg: "登录成功",
       data: token,
