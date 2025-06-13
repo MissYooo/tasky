@@ -23,7 +23,7 @@ export const tasksTable = mysqlTable("tasks_table", {
     .default(sql`CURRENT_TIMESTAMP`),
 });
 
-export type Task = typeof tasksTable.$inferSelect;
+export type TaskSelect = typeof tasksTable.$inferSelect;
 export type TaskInsert = typeof tasksTable.$inferInsert;
 
 /** 用户表 */
@@ -43,5 +43,5 @@ export const usersTable = mysqlTable("users_table", {
     .default(sql`CURRENT_TIMESTAMP`),
 });
 
-export type User = typeof usersTable.$inferSelect;
+export type UserSelect = typeof usersTable.$inferSelect;
 export type UserInsert = typeof usersTable.$inferInsert;

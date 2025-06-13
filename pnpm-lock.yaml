@@ -17,18 +17,27 @@ importers:
       '@hono/node-server':
         specifier: ^1.14.4
         version: 1.14.4(hono@4.7.11)
+      '@hono/zod-validator':
+        specifier: ^0.7.0
+        version: 0.7.0(hono@4.7.11)(zod@3.25.64)
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
       drizzle-orm:
         specifier: ^0.44.2
         version: 0.44.2(mysql2@3.14.1)
+      drizzle-zod:
+        specifier: ^0.8.2
+        version: 0.8.2(drizzle-orm@0.44.2(mysql2@3.14.1))(zod@3.25.64)
       hono:
         specifier: ^4.7.11
         version: 4.7.11
       mysql2:
         specifier: ^3.14.1
         version: 3.14.1
+      zod:
+        specifier: ^3.25.64
+        version: 3.25.64
     devDependencies:
       '@types/node':
         specifier: ^20.11.17
@@ -341,6 +350,12 @@ packages:
     peerDependencies:
       hono: ^4
 
+  '@hono/zod-validator@0.7.0':
+    resolution: {integrity: sha512-qe2ZE6sHFE98dcUrbYMtS3bAV8hqcCOflykvZga2S7XhmNSZzT+dIz4OuMILsjLHkJw9JMn912/dB7dQOmuPvg==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.25.0
+
   '@types/node@20.19.0':
     resolution: {integrity: sha512-hfrc+1tud1xcdVTABC2JiomZJEklMcXYNTVtZLAeqTVWD+qL5jkHKT+1lOtqDdGxt+mB53DTtiz673vfjU8D1Q==}
 
@@ -463,6 +478,12 @@ packages:
       sqlite3:
         optional: true
 
+  drizzle-zod@0.8.2:
+    resolution: {integrity: sha512-9Do/16OjFFNrQDZgvMtxtDDwKWbFOxUAIwNPKX98SfxrP8H18vhN1BvNXbhelLcdgCE7GEaXDJqBjMExSkhpkA==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.0'
+      zod: ^3.25.1
+
   esbuild-register@3.6.0:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
     peerDependencies:
@@ -554,6 +575,9 @@ packages:
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
+  zod@3.25.64:
+    resolution: {integrity: sha512-hbP9FpSZf7pkS7hRVUrOjhwKJNyampPgtXKc3AN6DsWtoHsg2Sb4SQaS4Tcay380zSwd2VPo9G9180emBACp5g==}
 
 snapshots:
 
@@ -714,6 +738,11 @@ snapshots:
     dependencies:
       hono: 4.7.11
 
+  '@hono/zod-validator@0.7.0(hono@4.7.11)(zod@3.25.64)':
+    dependencies:
+      hono: 4.7.11
+      zod: 3.25.64
+
   '@types/node@20.19.0':
     dependencies:
       undici-types: 6.21.0
@@ -742,6 +771,11 @@ snapshots:
   drizzle-orm@0.44.2(mysql2@3.14.1):
     optionalDependencies:
       mysql2: 3.14.1
+
+  drizzle-zod@0.8.2(drizzle-orm@0.44.2(mysql2@3.14.1))(zod@3.25.64):
+    dependencies:
+      drizzle-orm: 0.44.2(mysql2@3.14.1)
+      zod: 3.25.64
 
   esbuild-register@3.6.0(esbuild@0.25.5):
     dependencies:
@@ -871,3 +905,5 @@ snapshots:
   typescript@5.8.3: {}
 
   undici-types@6.21.0: {}
+
+  zod@3.25.64: {}

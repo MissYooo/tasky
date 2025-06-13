@@ -4,7 +4,9 @@ import { task, auth } from "@/controllers/index.js";
 import { jwtMiddleware } from "@/middlewares/index.js";
 import { respMiddleware } from "./middlewares/modules/resp.js";
 import { HTTPException } from "hono/http-exception";
-const app = new Hono();
+const app = new Hono({
+  strict: false,
+});
 
 app.use("/*", respMiddleware);
 app.route("/", auth);
@@ -25,6 +27,6 @@ serve(
     port: 3000,
   },
   () => {
-    console.log("😊 芜湖~  起飞~");
+    console.log("😊 芜湖~ 起飞~", "3000端口已启动!");
   }
 );
