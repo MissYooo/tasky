@@ -34,7 +34,7 @@ export const usersTable = mysqlTable("users_table", {
   })
     .notNull()
     .unique(),
-  email: varchar({ length: 255 }).notNull().unique(),
+  email: varchar({ length: 255 }).notNull(),
   password: varchar({
     length: 255,
   }).notNull(),

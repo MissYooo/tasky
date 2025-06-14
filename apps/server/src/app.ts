@@ -3,7 +3,6 @@ import { Hono } from "hono";
 import { task, auth } from "@/controllers/index.js";
 import { jwtMiddleware } from "@/middlewares/index.js";
 import { respMiddleware } from "./middlewares/modules/resp.js";
-import { HTTPException } from "hono/http-exception";
 const app = new Hono({
   strict: false,
 });
@@ -15,9 +14,6 @@ app.use("/*", jwtMiddleware);
 app.route("/", task);
 
 app.onError((err, c) => {
-  if (err instanceof HTTPException) {
-    return err.getResponse();
-  }
   return c.api.error(err.message);
 });
 
