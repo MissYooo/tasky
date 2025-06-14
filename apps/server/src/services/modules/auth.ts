@@ -1,12 +1,13 @@
 import { db } from "@/db/connection.js";
-import { UserInsert, usersTable } from "@/db/schema.js";
+import { usersTable } from "@/db/schema.js";
 import { sha256 } from "hono/utils/crypto";
 import { eq } from "drizzle-orm";
 import { sign } from "hono/jwt";
 import { TokenPrivateKey } from "@/middlewares/index.js";
+import { UserLoginSchema, UserRegisterSchema } from "@/controllers/index.js";
 
 export const authService = {
-  register: async (user: UserInsert) => {
+  register: async (user: UserRegisterSchema) => {
     // 检查用户是否已存在
     const [existingUser] = await db
       .select()
@@ -22,10 +23,7 @@ export const authService = {
     });
     return null;
   },
-  login: async ({
-    username,
-    password,
-  }: Pick<UserInsert, "username" | "password">) => {
+  login: async ({ username, password }: UserLoginSchema) => {
     // 检查用户是否已存在
     const [existingUser] = await db
       .select()

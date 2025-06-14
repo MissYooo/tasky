@@ -16,9 +16,10 @@ const userRegisterSchema = createInsertSchema(usersTable, {
   id: true,
   createdAt: true,
 });
+export type UserRegisterSchema = z.infer<typeof userRegisterSchema>;
 
 auth.post("/register", zValidator("json", userRegisterSchema), async (c) => {
-  const user = c.req.valid("json");
+  const user: UserRegisterSchema = c.req.valid("json");
   const res = await authService.register(user);
   return c.api.success(res);
 });
@@ -29,9 +30,10 @@ const userLoginSchema = userRegisterSchema.pick({
   username: true,
   password: true,
 });
+export type UserLoginSchema = z.infer<typeof userLoginSchema>;
 
 auth.post("/login", zValidator("json", userLoginSchema), async (c) => {
-  const user = await c.req.valid("json");
+  const user: UserLoginSchema = await c.req.valid("json");
   const res = await authService.login(user);
   return c.api.success(res);
 });
