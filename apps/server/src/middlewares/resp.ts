@@ -1,5 +1,6 @@
 import { Context } from "hono";
 import { createMiddleware } from "hono/factory";
+import { ContentfulStatusCode } from "hono/utils/http-status";
 
 /** 响应格式化中间件 */
 export const respMiddleware = createMiddleware(async (c, next) => {
@@ -26,12 +27,15 @@ const contextApi = (c: Context) => {
         timeStamp: Date.now(),
       });
     },
-    error: (message: string) => {
-      return c.json({
-        success: false,
-        message,
-        timeStamp: Date.now(),
-      });
+    error: (message: string, status?: ContentfulStatusCode) => {
+      return c.json(
+        {
+          success: false,
+          message,
+          timeStamp: Date.now(),
+        },
+        status
+      );
     },
   };
 };

@@ -1,44 +1,35 @@
-import { db } from "@/db/connection.js";
-import { usersTable } from "@/db/schema.js";
 import { sha256 } from "hono/utils/crypto";
-import { eq } from "drizzle-orm";
+import { authRepository } from "./repository.js";
+import { UserLoginSchema, UserRegisterSchema } from "./validation.js";
 import { sign } from "hono/jwt";
 import { TokenPrivateKey } from "@/middlewares/index.js";
-import { UserLoginSchema, UserRegisterSchema } from "@/controllers/index.js";
 
 export const authService = {
+  // 用户注册
   register: async (user: UserRegisterSchema) => {
     // 检查用户是否已存在
-    const [existingUser] = await db
-      .select()
-      .from(usersTable)
-      .where(eq(usersTable.username, user.username));
+    const existingUser = await authRepository.getUserByName(user.username);
     if (existingUser) {
       throw new Error("用户已存在");
     }
-
-    await db.insert(usersTable).values({
+    await authRepository.register({
       ...user,
       password: (await sha256(user.password))!,
     });
     return null;
   },
+  // 用户登录
   login: async ({ username, password }: UserLoginSchema) => {
     // 检查用户是否已存在
-    const [existingUser] = await db
-      .select()
-      .from(usersTable)
-      .where(eq(usersTable.username, username));
+    const existingUser = await authRepository.getUserByName(username);
     if (!existingUser) {
       throw new Error("用户名或密码错误");
     }
-
     // 验证密码
     const passwordMatch = (await sha256(password)) === existingUser.password;
     if (!passwordMatch) {
       throw new Error("用户名或密码错误");
     }
-
     // 生成token
     const token = await sign(
       {
@@ -49,7 +40,6 @@ export const authService = {
       },
       TokenPrivateKey
     );
-
     return token;
   },
 };

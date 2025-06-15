@@ -1,8 +1,8 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { task, auth } from "@/controllers/index.js";
-import { jwtMiddleware } from "@/middlewares/index.js";
-import { respMiddleware } from "./middlewares/modules/resp.js";
+import { jwtMiddleware, respMiddleware } from "@/middlewares/index.js";
+import { auth, task } from "@/modules/index.js";
+
 const app = new Hono({
   strict: false,
 });

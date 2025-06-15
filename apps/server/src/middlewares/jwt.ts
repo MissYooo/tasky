@@ -8,5 +8,5 @@ export const jwtMiddleware = createMiddleware(async (c, next) => {
   await jwt({
     secret: TokenPrivateKey,
   })(c, next);
-  console.log("jwtPayload:", c.get("jwtPayload"));
+  // console.log("jwtPayload:", c.get("jwtPayload"));
 });
