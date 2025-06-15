@@ -11,7 +11,6 @@ export const taskRepository = {
       .select()
       .from(tasksTable)
       .where(and(eq(tasksTable.id, id), eq(tasksTable.userId, userId)))
-    console.log('task', task)
     return task
   },
   /** 获取所有任务 */

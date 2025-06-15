@@ -1,4 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
+import { logger } from 'hono/logger'
 import {
   jwtMiddleware,
   notFoundMiddleware,
@@ -9,6 +10,8 @@ import { auth, task } from '@/modules/index.js'
 const app = new OpenAPIHono({
   strict: false,
 })
+
+app.use(logger())
 
 app.use('/*', respMiddleware)
 app.route('/', auth)
