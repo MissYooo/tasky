@@ -6,10 +6,14 @@ import {
   respMiddleware,
 } from '@/middlewares/index.js'
 
-export function createApp() {
-  const app = new OpenAPIHono({
+export function createRouter() {
+  return new OpenAPIHono({
     strict: false,
   })
+}
+
+export function createApp() {
+  const app = createRouter()
   app.use(logger())
   app.use('/*', respMiddleware)
   app.use('/*', async (c, next) => {

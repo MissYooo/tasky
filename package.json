@@ -1,5 +1,6 @@
 {
   "name": "tasky",
+  "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.12.1",
   "description": "",
@@ -14,7 +15,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.14.1",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "eslint-plugin-format": "^1.0.1",
     "typescript": "^5.8.3"
   }

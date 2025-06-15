@@ -2,20 +2,46 @@ import type {
   UserLoginSchema,
   UserRegisterSchema,
 } from './validation.js'
-import { Hono } from 'hono'
+import { createRoute } from '@hono/zod-openapi'
+import { z } from 'zod/v4'
+import { createRouter } from '@/lib/index.js'
 import { authService } from './service.js'
 import {
   userLoginValidator,
-  userRegisterValidator,
+  userRegisterSchema,
 } from './validation.js'
 
-export const auth = new Hono().basePath('/auth')
+export const auth = createRouter().basePath('/auth')
 
 // ---用户注册---
-auth.post('/register', userRegisterValidator, async (c) => {
+auth.openapi(createRoute({
+  path: '/register',
+  method: 'post',
+  request: {
+    body: {
+      content: {
+        'application/json': {
+          schema: userRegisterSchema,
+        },
+      },
+      required: true,
+    },
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.null(),
+        },
+      },
+      description: '用户注册',
+    },
+  },
+
+}), async (c) => {
   const user: UserRegisterSchema = c.req.valid('json')
-  const res = await authService.register(user)
-  return c.api.success(res)
+  await authService.register(user)
+  return c.json(null)
 })
 
 // ---用户登录---

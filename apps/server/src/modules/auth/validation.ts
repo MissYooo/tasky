@@ -1,13 +1,13 @@
-import z from 'zod/v4'
+import type z from 'zod/v4'
+import { createInsertSchema } from 'drizzle-zod'
 import { usersTable } from '@/db/schemas/index.js'
-import { createInsertSchema, zValidator } from '@/utils/validator.js'
+import { zValidator } from '@/utils/validator.js'
 
 // ---用户注册---
 /** 用户注册-zod */
 export const userRegisterSchema = createInsertSchema(usersTable, {
   username: schema => schema.min(3).max(10),
   password: schema => schema.min(6).max(16),
-  email: () => z.email(),
 }).omit({
   id: true,
   createdAt: true,
