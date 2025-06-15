@@ -1,27 +1,9 @@
-import { OpenAPIHono } from '@hono/zod-openapi'
-import { logger } from 'hono/logger'
-import {
-  jwtMiddleware,
-  notFoundMiddleware,
-  respMiddleware,
-} from '@/middlewares/index.js'
+import { createApp } from '@/lib/index.js'
+import { configureOpenAPI } from '@/lib/index.js'
 import { auth, task } from '@/modules/index.js'
 
-const app = new OpenAPIHono({
-  strict: false,
-})
-
-app.use(logger())
-
-app.use('/*', respMiddleware)
+const app = createApp()
 app.route('/', auth)
-
-app.use('/*', jwtMiddleware)
 app.route('/', task)
-
-app.notFound(notFoundMiddleware)
-app.onError((err, c) => {
-  return c.api.error(err.message)
-})
-
+configureOpenAPI(app)
 export default app
