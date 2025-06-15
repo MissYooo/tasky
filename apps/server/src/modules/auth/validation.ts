@@ -1,5 +1,5 @@
 import z from 'zod/v4'
-import { usersTable } from '@/db/schema.js'
+import { usersTable } from '@/db/schemas/index.js'
 import { createInsertSchema, zValidator } from '@/utils/validator.js'
 
 // ---用户注册---

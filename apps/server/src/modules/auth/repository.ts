@@ -1,7 +1,7 @@
-import type { UserInsert } from '@/db/schema.js'
+import type { UserInsert } from '@/db/schemas/index.js'
 import { eq } from 'drizzle-orm'
 import { db } from '@/db/connection.js'
-import { usersTable } from '@/db/schema.js'
+import { usersTable } from '@/db/schemas/index.js'
 
 export const authRepository = {
   /** 通过用户名查询用户 */

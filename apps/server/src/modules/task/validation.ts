@@ -1,7 +1,7 @@
 import type z from 'zod/v4'
 import dayjs from 'dayjs'
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
-import { tasksTable } from '@/db/schema.js'
+import { tasksTable } from '@/db/schemas/index.js'
 
 // ---任务获取---
 /** 任务获取-zod */
