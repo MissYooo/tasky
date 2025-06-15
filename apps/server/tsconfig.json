@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "nodenext",
-    "strict": true,
-    "skipLibCheck": true,
-    "types": ["node"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",
-    "outDir": "./dist",
+    "module": "nodenext",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["node"],
+    "strict": true,
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
   "exclude": ["node_modules"]
 }

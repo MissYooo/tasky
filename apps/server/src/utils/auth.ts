@@ -1,5 +1,5 @@
-import { Context } from "hono";
+import type { Context } from 'hono'
 
-export const getUserId = (c: Context) => {
-  return c.get("jwtPayload").userId as number;
-};
+export function getUserId(c: Context) {
+  return c.get('jwtPayload').userId as number
+}
