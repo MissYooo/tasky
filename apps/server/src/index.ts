@@ -1,12 +1,13 @@
 import { serve } from '@hono/node-server'
 import app from './app.js'
+import env from './env.js'
 
 serve(
   {
     fetch: app.fetch,
-    port: 3000,
+    port: env.PROT,
   },
   () => {
-    console.log('tasky服务在 http://localhost:3000 已启动 😊')
+    console.log(`tasky服务在 http://localhost:${env.PROT} 已启动 😊`)
   },
 )
