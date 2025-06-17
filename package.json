@@ -8,7 +8,9 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "server": "pnpm --filter @tasky/server dev",
+    "dev:server": "pnpm --filter @tasky/server dev",
+    "build:server": "pnpm --filter @tasky/server build",
+    "start:server": "pnpm --filter @tasky/server start",
     "db:push": "pnpm --filter @tasky/server db:push",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

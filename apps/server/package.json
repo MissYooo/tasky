@@ -3,9 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "cross-env NODE_ENV=production tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
+    "build": "tsup",
+    "start": "cross-env NODE_ENV=production node dist/index.cjs",
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^20.11.17",
     "drizzle-kit": "^0.31.1",
+    "tsup": "^8.5.0",
     "tsx": "^4.7.1"
   }
 }
