@@ -3,7 +3,7 @@ import type {
   TaskAddSchema,
   TaskUpdateSchema,
 } from './validation.js'
-import type { TaskSelect } from '@/db/schema.js'
+import type { TaskSelect } from '@/db/schemas/index.js'
 import { z } from 'zod/v4'
 import { getUserId } from '@/utils/auth.js'
 import { taskRepository } from './repository.js'
