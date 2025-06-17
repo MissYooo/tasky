@@ -1,13 +1,12 @@
 import type { ZodError } from 'zod/v4'
-import path from 'node:path'
 import process from 'node:process'
 import { config } from 'dotenv'
 import { z } from 'zod/v4'
 
-config()
 config({
   // eslint-disable-next-line node/no-process-env
-  path: path.resolve(process.cwd(), `../.env.${process.env.NODE_ENV}`),
+  path: ['.env', `.env.${process.env.NODE_ENV}`],
+  override: true,
 })
 
 export const EnvSchema = z.object({
@@ -20,7 +19,6 @@ let env: z.infer<typeof EnvSchema>
 try {
   // eslint-disable-next-line node/no-process-env
   env = EnvSchema.parse(process.env)
-  console.log('env', env)
 }
 catch (e) {
   const error = e as ZodError
