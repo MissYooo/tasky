@@ -6,6 +6,7 @@ export const db = drizzle({
     port: 3306,
     user: 'root',
     password: 'mypassword',
-    database: 'database',
+    database: 'tasky',
   },
+  casing: 'snake_case',
 })

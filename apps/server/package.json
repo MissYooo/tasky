@@ -6,7 +6,8 @@
     "dev": "cross-env NODE_ENV=development tsx watch src/index.ts",
     "build": "tsup",
     "start": "cross-env NODE_ENV=production node dist/index.cjs",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.4",

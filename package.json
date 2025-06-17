@@ -12,6 +12,7 @@
     "build:server": "pnpm --filter @tasky/server build",
     "start:server": "pnpm --filter @tasky/server start",
     "db:push": "pnpm --filter @tasky/server db:push",
+    "db:studio": "pnpm --filter @tasky/server db:studio",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
