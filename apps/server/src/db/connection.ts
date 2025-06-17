@@ -1,4 +1,5 @@
 import { drizzle } from 'drizzle-orm/mysql2'
+import * as schema from './schemas/index.ts'
 
 export const db = drizzle({
   connection: {
@@ -9,4 +10,7 @@ export const db = drizzle({
     database: 'tasky',
   },
   casing: 'snake_case',
+  // mysql2
+  mode: 'planetscale',
+  schema,
 })

@@ -1,5 +1,6 @@
-import { sql } from 'drizzle-orm'
+import { relations, sql } from 'drizzle-orm'
 import { datetime, int, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
+import { tasksTable } from './task.ts'
 
 /** 用户表 */
 export const usersTable = mysqlTable('users_table', {
@@ -17,6 +18,10 @@ export const usersTable = mysqlTable('users_table', {
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
 })
+
+export const usersTableRalations = relations(usersTable, ({ many }) => ({
+  tasks: many(tasksTable),
+}))
 
 export type UserSelect = typeof usersTable.$inferSelect
 export type UserInsert = typeof usersTable.$inferInsert

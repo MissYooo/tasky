@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm'
 import { boolean, int, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
 import { timeStamps } from '../helper/index.ts'
 import { usersTable } from './user.ts'
@@ -9,9 +10,16 @@ export const tasksTable = mysqlTable('tasks_table', {
   completed: boolean().notNull().default(false),
   userId: int()
     .notNull()
-    .references(() => usersTable.id, { onDelete: 'no action' }),
+    .references(() => usersTable.id, { onDelete: 'cascade' }),
   ...timeStamps(),
 })
+
+export const tasksTableRalations = relations(tasksTable, ({ one }) => ({
+  user: one(usersTable, {
+    fields: [tasksTable.userId],
+    references: [usersTable.id],
+  }),
+}))
 
 export type TaskSelect = typeof tasksTable.$inferSelect
 export type TaskInsert = typeof tasksTable.$inferInsert
