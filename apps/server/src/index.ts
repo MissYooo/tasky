@@ -5,9 +5,9 @@ import env from './env.js'
 serve(
   {
     fetch: app.fetch,
-    port: env.PROT,
+    port: env.PORT,
   },
   () => {
-    console.log(`tasky服务在 http://localhost:${env.PROT} 已启动 😊`)
+    console.log(`tasky服务在 http://localhost:${env.PORT} 已启动 😊`)
   },
 )
