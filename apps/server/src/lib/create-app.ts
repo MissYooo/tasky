@@ -4,7 +4,7 @@ import {
   jwtMiddleware,
   notFoundMiddleware,
   respMiddleware,
-} from '@/middlewares/index.js'
+} from '@/middlewares/index.ts'
 
 export function createRouter() {
   return new OpenAPIHono({

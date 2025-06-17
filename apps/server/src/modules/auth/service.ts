@@ -1,8 +1,8 @@
-import type { UserLoginSchema, UserRegisterSchema } from './validation.js'
+import type { UserLoginSchema, UserRegisterSchema } from './validation.ts'
 import { sign } from 'hono/jwt'
 import { sha256 } from 'hono/utils/crypto'
-import { TokenPrivateKey } from '@/middlewares/index.js'
-import { authRepository } from './repository.js'
+import { TokenPrivateKey } from '@/middlewares/index.ts'
+import { authRepository } from './repository.ts'
 
 export const authService = {
   // 用户注册

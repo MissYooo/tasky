@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm'
 import { boolean, datetime, int, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
+import { timeStamps } from '../helper/index.ts'
 
 /** 用户表 */
 export const usersTable = mysqlTable('users_table', {
@@ -29,12 +30,7 @@ export const tasksTable = mysqlTable('tasks_table', {
   userId: int()
     .notNull()
     .references(() => usersTable.id, { onDelete: 'no action' }),
-  createdAt: datetime({ mode: 'date' })
-    .notNull()
-    .default(sql`CURRENT_TIMESTAMP`),
-  updatedAt: datetime({ mode: 'date' })
-    .notNull()
-    .default(sql`CURRENT_TIMESTAMP`),
+  ...timeStamps(),
 })
 
 export type TaskSelect = typeof tasksTable.$inferSelect

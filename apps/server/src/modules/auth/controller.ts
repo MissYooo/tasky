@@ -1,15 +1,15 @@
 import type {
   UserLoginSchema,
   UserRegisterSchema,
-} from './validation.js'
+} from './validation.ts'
 import { createRoute } from '@hono/zod-openapi'
 import { z } from 'zod/v4'
-import { createRouter } from '@/lib/index.js'
-import { authService } from './service.js'
+import { createRouter } from '@/lib/index.ts'
+import { authService } from './service.ts'
 import {
   userLoginValidator,
   userRegisterSchema,
-} from './validation.js'
+} from './validation.ts'
 
 export const auth = createRouter().basePath('/auth')
 

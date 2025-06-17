@@ -1,2 +1,2 @@
-export * from './configure-open-api.js'
-export * from './create-app.js'
+export * from './configure-open-api.ts'
+export * from './create-app.ts'

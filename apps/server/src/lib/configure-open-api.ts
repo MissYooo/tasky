@@ -1,4 +1,4 @@
-import type { AppOpenAPI } from './create-app.js'
+import type { AppOpenAPI } from './create-app.ts'
 import { Scalar } from '@scalar/hono-api-reference'
 import packageJSON from '../../package.json' with { type: 'json' }
 

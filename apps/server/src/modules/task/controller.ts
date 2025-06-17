@@ -1,8 +1,8 @@
-import type { TaskAddSchema, TaskUpdateSchema } from './validation.js'
+import type { TaskAddSchema, TaskUpdateSchema } from './validation.ts'
 import { Hono } from 'hono'
-import { zValidator } from '@/utils/validator.js'
-import { taskService } from './service.js'
-import { taskAddSchema, taskUpdateSchema } from './validation.js'
+import { zValidator } from '@/utils/validator.ts'
+import { taskService } from './service.ts'
+import { taskAddSchema, taskUpdateSchema } from './validation.ts'
 
 export const task = new Hono().basePath('/task')
 

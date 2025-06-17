@@ -1,7 +1,7 @@
 import type z from 'zod/v4'
 import { createInsertSchema } from 'drizzle-zod'
-import { usersTable } from '@/db/schemas/index.js'
-import { zValidator } from '@/utils/validator.js'
+import { usersTable } from '@/db/schemas/index.ts'
+import { zValidator } from '@/utils/validator.ts'
 
 // ---用户注册---
 /** 用户注册-zod */

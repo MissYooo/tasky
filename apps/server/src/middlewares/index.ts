@@ -1,3 +1,3 @@
-export * from './jwt.js'
-export * from './not-found.js'
-export * from './resp.js'
+export * from './jwt.ts'
+export * from './not-found.ts'
+export * from './resp.ts'

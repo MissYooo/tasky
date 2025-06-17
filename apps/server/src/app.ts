@@ -1,6 +1,6 @@
-import { createApp } from '@/lib/index.js'
-import { configureOpenAPI } from '@/lib/index.js'
-import { auth, task } from '@/modules/index.js'
+import { createApp } from '@/lib/index.ts'
+import { configureOpenAPI } from '@/lib/index.ts'
+import { auth, task } from '@/modules/index.ts'
 
 const app = createApp()
 app.route('/', auth)

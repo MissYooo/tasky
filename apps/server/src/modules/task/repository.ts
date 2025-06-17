@@ -1,8 +1,8 @@
-import type { TaskUpdateSchema } from './validation.js'
-import type { TaskInsert, TaskSelect, UserSelect } from '@/db/schemas/index.js'
+import type { TaskUpdateSchema } from './validation.ts'
+import type { TaskInsert, TaskSelect, UserSelect } from '@/db/schemas/index.ts'
 import { and, eq } from 'drizzle-orm'
-import { db } from '@/db/connection.js'
-import { tasksTable } from '@/db/schemas/index.js'
+import { db } from '@/db/connection.ts'
+import { tasksTable } from '@/db/schemas/index.ts'
 
 export const taskRepository = {
   /** 获取单个任务 */

@@ -2,14 +2,14 @@ import type { Context } from 'hono'
 import type {
   TaskAddSchema,
   TaskUpdateSchema,
-} from './validation.js'
-import type { TaskSelect } from '@/db/schemas/index.js'
+} from './validation.ts'
+import type { TaskSelect } from '@/db/schemas/index.ts'
 import { z } from 'zod/v4'
-import { getUserId } from '@/utils/auth.js'
-import { taskRepository } from './repository.js'
+import { getUserId } from '@/utils/auth.ts'
+import { taskRepository } from './repository.ts'
 import {
   taskGetSchema,
-} from './validation.js'
+} from './validation.ts'
 
 export const taskService = {
   /** 获取所有任务 */
