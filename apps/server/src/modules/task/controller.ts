@@ -1,19 +1,20 @@
 import type { TaskAddSchema, TaskUpdateSchema } from './validation.ts'
-import { Hono } from 'hono'
 import { zValidator } from '@/utils/validator.ts'
 import { taskService } from './service.ts'
 import { taskAddSchema, taskUpdateSchema } from './validation.ts'
+import { createRouter } from '@/lib/create-app.ts'
+import { taskRoute } from './route.ts'
 
-export const task = new Hono().basePath('/task')
+export const task = createRouter().basePath('/task')
 
 // ---获取所有任务---
-task.get('/', async (c) => {
+task.openapi(taskRoute.getAll, async (c) => {
   const tasks = await taskService.getAllTasks(c)
   return c.api.success(tasks)
 })
 
 // ---获取单个任务---
-task.get('/:id', async (c) => {
+task.openapi(taskRoute.getOne, async (c) => {
   const tasks = await taskService.getTask(+c.req.param('id'), c)
   return c.api.success(tasks)
 })
