@@ -1,11 +1,12 @@
 import type { NotFoundHandler } from 'hono'
+import { ClientError } from '@/utils/error.ts'
 
+/**
+ * 404中间件
+ */
 export const notFoundMiddleware: NotFoundHandler = (c) => {
-  return c.json(
-    {
-      success: false,
-      message: `资源不存在---${c.req.path}`,
-    },
-    404,
-  )
+  throw new ClientError({
+    code: 404,
+    message: `${c.req.path}: 资源不存在`,
+  })
 }

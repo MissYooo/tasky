@@ -6,6 +6,7 @@ import type {
 import type { TaskSelect } from '@/db/schemas/index.ts'
 import { z } from 'zod/v4'
 import { getUserId } from '@/utils/auth.ts'
+import { ClientError } from '@/utils/error.ts'
 import { taskRepository } from './repository.ts'
 import {
   taskGetSchema,
@@ -25,7 +26,10 @@ export const taskService = {
       userId: getUserId(c),
     })
     if (!task) {
-      throw new Error('任务不存在')
+      throw new ClientError({
+        code: 404,
+        message: '任务不存在',
+      })
     }
     return taskGetSchema.parse(task)
   },

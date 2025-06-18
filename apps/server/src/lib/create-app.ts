@@ -1,31 +1,35 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { logger } from 'hono/logger'
 import {
+  errorMiddleware,
   jwtMiddleware,
   notFoundMiddleware,
-  respMiddleware,
+  respFormatMiddleware,
 } from '@/middlewares/index.ts'
 
 export function createRouter() {
   return new OpenAPIHono({
     strict: false,
+    defaultHook: (result, c) => {
+      if (!result.success) {
+        console.log(result.error.issues)
+        return c.api.error({
+          code: 400,
+          message: '请求参数有误',
+          errors: result.error.issues,
+        })
+      }
+    },
   })
 }
 
 export function createApp() {
   const app = createRouter()
   app.use(logger())
-  app.use('/*', respMiddleware)
-  app.use('/*', async (c, next) => {
-    if (!['/auth', '/doc'].some(prefix => c.req.path.startsWith(prefix))) {
-      return await jwtMiddleware(c, next)
-    }
-    await next()
-  })
+  app.use(respFormatMiddleware)
+  app.use(jwtMiddleware)
   app.notFound(notFoundMiddleware)
-  app.onError((err, c) => {
-    return c.api.error(err.message)
-  })
+  app.onError(errorMiddleware)
   return app
 }
 
