@@ -1,5 +1,5 @@
 export * from './controller.ts'
 export * from './repository.ts'
+export * from './route.ts'
 export * from './service.ts'
 export * from './validation.ts'
-export * from './route.ts'
