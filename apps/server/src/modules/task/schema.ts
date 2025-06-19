@@ -27,6 +27,8 @@ export type TaskGetSchema = z.infer<typeof taskGetSchema>
 export const taskAddSchema = taskEneitySchema.pick({
   title: true,
   completed: true,
+}).extend({
+  completed: taskEneitySchema.shape.completed.default(false),
 })
 
 /** 任务新增-type */
