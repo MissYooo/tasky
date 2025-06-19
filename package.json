@@ -1,5 +1,5 @@
 {
-  "name": "tasky",
+  "name": "orbit",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.12.1",
@@ -8,11 +8,11 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "dev:server": "pnpm --filter @tasky/server dev",
-    "build:server": "pnpm --filter @tasky/server build",
-    "start:server": "pnpm --filter @tasky/server start",
-    "db": "pnpm --filter @tasky/server db",
-    "db:play": "pnpm --filter @tasky/server db:play",
+    "dev:taskyserver": "pnpm --filter @orbit/taskyserver dev",
+    "build:taskyserver": "pnpm --filter @orbit/taskyserver build",
+    "start:taskyserver": "pnpm --filter @orbit/taskyserver start",
+    "db": "pnpm --filter @orbit/taskyserver db",
+    "db:play": "pnpm --filter @orbit/taskyserver db:play",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

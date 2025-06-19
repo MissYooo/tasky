@@ -1,5 +1,5 @@
 {
-  "name": "@tasky/server",
+  "name": "@orbit/taskyserver",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
