@@ -1,8 +1,7 @@
 import type { UserLoginSchema, UserRegisterSchema } from './schema.ts'
+import { ClientError, TokenPrivateKey } from '@orbit/server'
 import { sign } from 'hono/jwt'
 import { sha256 } from 'hono/utils/crypto'
-import { TokenPrivateKey } from '@/middlewares/index.ts'
-import { ClientError } from '@/utils/error.ts'
 import { authRepository } from './repository.ts'
 
 export const authService = {

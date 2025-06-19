@@ -1,4 +1,4 @@
-import { formatErrorRes } from '@/middlewares/resp.ts'
+import { formatErrorRes } from '../middlewares/resp.ts'
 
 /**
  * 自定义客户端异常类

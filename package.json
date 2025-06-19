@@ -8,16 +8,17 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "dev:taskyserver": "pnpm --filter @orbit/taskyserver dev",
-    "build:taskyserver": "pnpm --filter @orbit/taskyserver build",
-    "start:taskyserver": "pnpm --filter @orbit/taskyserver start",
-    "db": "pnpm --filter @orbit/taskyserver db",
-    "db:play": "pnpm --filter @orbit/taskyserver db:play",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "dependencies": {
+    "hono": "^4.7.11",
+    "nanoid": "^5.1.5",
+    "zod": "^3.25.64"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.14.1",
+    "@types/node": "^20.11.17",
     "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "eslint": "^9.29.0",

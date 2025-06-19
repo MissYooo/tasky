@@ -4,9 +4,8 @@ import type {
   TaskUpdateSchema,
 } from './schema.ts'
 import type { TaskSelect } from '@/db/schemas/index.ts'
+import { ClientError, getUserId } from '@orbit/server'
 import { z } from 'zod/v4'
-import { getUserId } from '@/utils/auth.ts'
-import { ClientError } from '@/utils/error.ts'
 import { taskRepository } from './repository.ts'
 import {
   taskGetSchema,

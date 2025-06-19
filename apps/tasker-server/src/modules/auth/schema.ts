@@ -1,7 +1,6 @@
 import { createInsertSchema } from 'drizzle-zod'
 import z from 'zod/v4'
 import { usersTable } from '@/db/schemas/index.ts'
-import { zValidator } from '@/utils/validator.ts'
 
 // ---用户---
 /** 用户 eneity zod */
@@ -32,6 +31,3 @@ export const userLoginSchema = userEneitySchema.pick({
 
 /** 用户登录-type */
 export type UserLoginSchema = z.infer<typeof userLoginSchema>
-
-/** 用户登录-validator */
-export const userLoginValidator = zValidator('json', userLoginSchema)

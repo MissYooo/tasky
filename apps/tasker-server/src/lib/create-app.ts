@@ -1,11 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
+import { errorMiddleware, jwtMiddleware, notFoundMiddleware, respFormatMiddleware } from '@orbit/server'
 import { logger } from 'hono/logger'
-import {
-  errorMiddleware,
-  jwtMiddleware,
-  notFoundMiddleware,
-  respFormatMiddleware,
-} from '@/middlewares/index.ts'
 
 export function createRouter() {
   return new OpenAPIHono({

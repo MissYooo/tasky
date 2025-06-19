@@ -1,5 +1,5 @@
 import type { NotFoundHandler } from 'hono'
-import { ClientError } from '@/utils/error.ts'
+import { ClientError } from '../utils/error.ts'
 
 /**
  * 404中间件

@@ -1,6 +1,6 @@
 import type Hono from 'hono'
 import { HTTPException } from 'hono/http-exception'
-import { ClientError } from '@/utils/error.ts'
+import { ClientError } from '../utils/error.ts'
 
 /**
  * 错误处理中间件

@@ -1,6 +1,6 @@
 import { createRoute } from '@hono/zod-openapi'
+import { ApiJSONResponseSchema } from '@orbit/server'
 import { z } from 'zod/v4'
-import { ApiJSONResponseSchema } from '@/middlewares/resp.ts'
 import { taskAddSchema, taskGetSchema, taskUpdateSchema } from './schema.ts'
 
 export const taskRoute = {
