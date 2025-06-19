@@ -7,6 +7,7 @@ export const userRoute = {
   register: createRoute({
     path: '/register',
     method: 'post',
+    tags: ['用户'],
     request: {
       body: {
         content: {
@@ -32,6 +33,7 @@ export const userRoute = {
   login: createRoute({
     path: '/login',
     method: 'post',
+    tags: ['用户'],
     request: {
       body: {
         content: {

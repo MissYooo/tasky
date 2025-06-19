@@ -7,6 +7,7 @@ export const taskRoute = {
   getAll: createRoute({
     path: '/',
     method: 'get',
+    tags: ['任务'],
     responses: {
       200: {
         content: {
@@ -21,6 +22,7 @@ export const taskRoute = {
   getOne: createRoute({
     path: '/:id',
     method: 'get',
+    tags: ['任务'],
     request: {
       params: z.object({
         id: z.string().describe('任务id'),
@@ -40,6 +42,7 @@ export const taskRoute = {
   addTask: createRoute({
     path: '/',
     method: 'post',
+    tags: ['任务'],
     request: {
       body: {
         content: {
@@ -63,6 +66,7 @@ export const taskRoute = {
   updateTask: createRoute({
     path: '/:id',
     method: 'put',
+    tags: ['任务'],
     request: {
       params: z.object({
         id: z.string(),
@@ -89,6 +93,7 @@ export const taskRoute = {
   deleteTask: createRoute({
     path: '/:id',
     method: 'delete',
+    tags: ['任务'],
     request: {
       params: z.object({
         id: z.string().describe('任务id'),

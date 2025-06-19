@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@hono/swagger-ui": "^0.5.2",
     "hono": "^4.7.11",
     "nanoid": "^5.1.5",
     "zod": "^3.25.64"
