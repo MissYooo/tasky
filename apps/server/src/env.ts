@@ -12,6 +12,11 @@ config({
 export const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'production']).default('development'),
   PORT: z.coerce.number().default(3000),
+  MYSQL_HOST: z.string(),
+  MYSQL_PORT: z.coerce.number(),
+  MYSQL_USER: z.string(),
+  MYSQL_PWD: z.string(),
+  MYSQL_DB: z.string(),
 })
 
 let env: z.infer<typeof EnvSchema>

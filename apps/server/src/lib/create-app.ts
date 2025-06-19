@@ -12,7 +12,6 @@ export function createRouter() {
     strict: false,
     defaultHook: (result, c) => {
       if (!result.success) {
-        console.log(result.error.issues)
         return c.api.error({
           code: 400,
           message: '请求参数有误',

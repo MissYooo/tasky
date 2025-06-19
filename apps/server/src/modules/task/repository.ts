@@ -1,4 +1,4 @@
-import type { TaskUpdateSchema } from './validation.ts'
+import type { TaskUpdateSchema } from './schema.ts'
 import type { TaskInsert, TaskSelect, UserSelect } from '@/db/schemas/index.ts'
 import { and, eq } from 'drizzle-orm'
 import { db } from '@/db/connection.ts'

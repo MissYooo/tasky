@@ -2,7 +2,7 @@ import type { Context } from 'hono'
 import type {
   TaskAddSchema,
   TaskUpdateSchema,
-} from './validation.ts'
+} from './schema.ts'
 import type { TaskSelect } from '@/db/schemas/index.ts'
 import { z } from 'zod/v4'
 import { getUserId } from '@/utils/auth.ts'
@@ -10,7 +10,7 @@ import { ClientError } from '@/utils/error.ts'
 import { taskRepository } from './repository.ts'
 import {
   taskGetSchema,
-} from './validation.ts'
+} from './schema.ts'
 
 export const taskService = {
   /** 获取所有任务 */

@@ -1,7 +1,7 @@
 import { createRoute } from '@hono/zod-openapi'
 import { z } from 'zod/v4'
 import { ApiJSONResponseSchema } from '@/middlewares/resp.ts'
-import { userLoginSchema, userRegisterSchema } from './validation.ts'
+import { userLoginSchema, userRegisterSchema } from './schema.ts'
 
 export const userRoute = {
   register: createRoute({

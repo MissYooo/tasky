@@ -5,7 +5,7 @@ import { jwt } from 'hono/jwt'
 export const TokenPrivateKey = 'HonoApp'
 
 /** 无需认证的路由 */
-const authWhiteList = ['/auth', '/doc', '/favicon.ico','/.well-known']
+const authWhiteList = ['/auth', '/doc', '/favicon.ico', '/.well-known']
 
 /**
  * jwt中间件

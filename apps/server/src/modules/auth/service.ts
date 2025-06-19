@@ -1,4 +1,4 @@
-import type { UserLoginSchema, UserRegisterSchema } from './validation.ts'
+import type { UserLoginSchema, UserRegisterSchema } from './schema.ts'
 import { sign } from 'hono/jwt'
 import { sha256 } from 'hono/utils/crypto'
 import { TokenPrivateKey } from '@/middlewares/index.ts'

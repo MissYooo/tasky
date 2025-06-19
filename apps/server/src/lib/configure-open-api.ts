@@ -11,6 +11,7 @@ export function configureOpenAPI(app: AppOpenAPI) {
     },
   })
   app.get('/doc', Scalar(() => ({
+    pageTitle: 'taskyAPI文档',
     url: '/docjson',
     theme: 'kepler',
     defaultHttpClient: {
