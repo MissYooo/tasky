@@ -6,4 +6,6 @@ export default defineConfig({
   platform: 'node',
   target: 'node22',
   clean: true,
+  noExternal: [/.*/],
+  bundle: true,
 })
