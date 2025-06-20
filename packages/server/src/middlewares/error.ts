@@ -6,6 +6,7 @@ import { ClientError } from '../utils/error.ts'
  * 错误处理中间件
  */
 export const errorMiddleware: Hono.ErrorHandler = (err, c) => {
+  // console.log('err', err)
   if (err instanceof HTTPException) {
     return c.api.error({
       code: err.status,
