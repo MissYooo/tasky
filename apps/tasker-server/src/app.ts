@@ -1,5 +1,4 @@
-import { createApp } from '@/lib/index.ts'
-import { configureOpenAPI } from '@/lib/index.ts'
+import { configureOpenAPI, createApp } from '@/lib/index.ts'
 import { auth, task } from '@/modules/index.ts'
 
 const app = createApp()

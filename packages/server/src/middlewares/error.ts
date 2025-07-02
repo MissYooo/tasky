@@ -15,6 +15,7 @@ export const errorMiddleware: Hono.ErrorHandler = (err, c) => {
   if (err instanceof ClientError) {
     return c.api.error((err as ClientError).errorResponse)
   }
+  console.log(err)
   return c.api.error({
     message: '服务器内部错误',
     errors: err,

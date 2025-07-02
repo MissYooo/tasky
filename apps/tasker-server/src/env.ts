@@ -19,6 +19,7 @@ export const EnvSchema = z.object({
   MYSQL_DB: z.string(),
 })
 
+// eslint-disable-next-line import/no-mutable-exports
 let env: z.infer<typeof EnvSchema>
 
 try {

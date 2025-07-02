@@ -31,3 +31,6 @@ dist
 
 # play
 **/db/play.ts
+
+# temp
+uploads
