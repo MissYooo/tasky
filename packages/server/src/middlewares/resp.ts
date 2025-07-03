@@ -14,7 +14,7 @@ export function ApiJSONResponseSchema<T extends z.ZodType>(dataSchema: T) {
   })
 }
 
-type ApiJSONResponse<T> = Omit<z.infer<ReturnType<typeof ApiJSONResponseSchema<z.ZodType>>>, 'data' | 'code'> & {
+export type ApiJSONResponse<T> = Omit<z.infer<ReturnType<typeof ApiJSONResponseSchema<z.ZodType>>>, 'data' | 'code'> & {
   code: ContentfulStatusCode
   data: T
 }
