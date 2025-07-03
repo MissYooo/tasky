@@ -1,9 +1,10 @@
-import type { UploadFile } from 'tdesign-vue-next'
+import type { UploadFile, UploadInstanceFunctions } from 'tdesign-vue-next'
 import { Upload } from 'tdesign-vue-next'
-import { defineComponent } from 'vue'
+import { defineComponent, useTemplateRef } from 'vue'
 import { apiUpload } from './api'
 
 export default defineComponent(() => {
+  const uploadRef = useTemplateRef<UploadInstanceFunctions>('upload')
   /** 自定义上传方法 */
   const handleUpload = async (files: UploadFile | UploadFile[]) => {
     try {
@@ -11,7 +12,14 @@ export default defineComponent(() => {
       const formData = new FormData()
       const file = _files[0].raw!
       formData.append('file', file)
-      const data = await apiUpload(formData)
+      const data = await apiUpload(formData, (progressEvent) => {
+        if (progressEvent.total) {
+          const percent = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total,
+          )
+          uploadRef.value?.uploadFilePercent({file:_files[0],percent})
+        }
+      })
       return {
         status: 'success' as const,
         response: {
@@ -32,7 +40,7 @@ export default defineComponent(() => {
 
   return () => (
     <div class="w-full h-full flex justify-center items-center bg-emerald-500">
-      <Upload requestMethod={handleUpload} theme="image-flow" multiple={true} />
+      <Upload ref={'upload'} requestMethod={handleUpload} theme="file-flow" multiple={true} />
     </div>
   )
 })

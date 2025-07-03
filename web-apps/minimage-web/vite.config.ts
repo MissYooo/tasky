@@ -21,7 +21,7 @@ export default defineConfig({
     proxy: {
       '/mini': {
         target: 'http://localhost:3002',
-        changeOrigin: true,
+        changeOrigin: true
       },
     },
   },
