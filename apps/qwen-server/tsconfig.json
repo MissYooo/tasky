@@ -1,21 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-    "baseUrl": ".",
-    "module": "nodenext",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "resolveJsonModule": true,
-    "types": ["node"],
-    "allowImportingTsExtensions": true,
-    "strict": true,
-    "noEmit": true,
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "exclude": ["node_modules"]
+  "extends": "@orbit/tsconfig/configs/hono/tsconfig.json"
 }

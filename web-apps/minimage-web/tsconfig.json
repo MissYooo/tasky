@@ -1,11 +1,3 @@
 {
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ],
-  "files": []
+  "extends": "@orbit/tsconfig/configs/vue3-vite/tsconfig.json"
 }

@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.16.2",
+    "@orbit/tsconfig": "workspace:*",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^20.19.4",
     "@vitejs/plugin-vue": "^6.0.0",

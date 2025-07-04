@@ -1,0 +1,8 @@
+{
+  "name": "@orbit/tsconfig",
+  "version": "1.0.0",
+  "description": "存放公共的ts配置文件",
+  "author": "",
+  "license": "ISC",
+  "files": ["configs/*"]
+}
