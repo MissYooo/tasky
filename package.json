@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "mini": "pnpm -F @orbit/minimageserver",
-    "mini-web": "pnpm -F @orbit/minimageweb"
+    "mini-web": "pnpm -F @orbit/minimageweb",
+    "tasky": "pnpm -F @orbit/taskyserver"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.4",

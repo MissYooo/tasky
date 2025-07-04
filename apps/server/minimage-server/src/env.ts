@@ -13,6 +13,7 @@ export const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'production']),
   PORT: z.coerce.number(),
   API_KEY: z.string(),
+  JWT_PrivateKey: z.string(),
 })
 
 // eslint-disable-next-line import/no-mutable-exports

@@ -21,7 +21,10 @@ export function createApp() {
   const app = createRouter()
   app.use(logger())
   app.use(respFormatMiddleware)
-  app.use(jwtMiddleware)
+  app.use(jwtMiddleware({
+    tokenPrivateKey: 'HonoApp',
+    authWhiteList: ['/auth', '/scalar', '/doc'],
+  }))
   app.notFound(notFoundMiddleware)
   app.onError(errorMiddleware)
   return app

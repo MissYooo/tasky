@@ -1,7 +1,8 @@
 import type { UserLoginSchema, UserRegisterSchema } from './schema.ts'
-import { ClientError, TokenPrivateKey } from '@orbit/server'
+import { ClientError } from '@orbit/server'
 import { sign } from 'hono/jwt'
 import { sha256 } from 'hono/utils/crypto'
+import env from '@/env.ts'
 import { authRepository } from './repository.ts'
 
 export const authService = {
@@ -47,7 +48,7 @@ export const authService = {
         // 一小时过期
         exp: Math.floor(Date.now() / 1000) + 60 * 60,
       },
-      TokenPrivateKey,
+      env.JWT_PrivateKey,
     )
     return token
   },

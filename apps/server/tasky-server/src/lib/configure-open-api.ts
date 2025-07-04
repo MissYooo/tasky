@@ -1,14 +1,13 @@
 import type { AppOpenAPI } from './create-app.ts'
-import { swaggerUI } from '@hono/swagger-ui'
-import packageJSON from '../../package.json' with { type: 'json' }
+import { Scalar } from '@scalar/hono-api-reference'
 
 export function configureOpenAPI(app: AppOpenAPI) {
-  app.doc('/docjson', {
+  app.doc('/doc', {
     openapi: '3.0.0',
     info: {
-      version: packageJSON.version,
+      version: '1.0',
       title: 'Tasky API',
     },
   })
-  app.get('/doc', swaggerUI({ url: '/docjson' }))
+  app.get('/scalar', Scalar({ url: '/doc' }))
 }

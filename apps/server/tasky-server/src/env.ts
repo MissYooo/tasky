@@ -17,6 +17,7 @@ export const EnvSchema = z.object({
   MYSQL_USER: z.string(),
   MYSQL_PWD: z.string(),
   MYSQL_DB: z.string(),
+  JWT_PrivateKey: z.string(),
 })
 
 // eslint-disable-next-line import/no-mutable-exports

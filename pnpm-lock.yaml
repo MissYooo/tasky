@@ -147,6 +147,8 @@ importers:
 
   apps/server/tasker-server: {}
 
+  apps/server/tasky-server: {}
+
   packages/client: {}
 
   packages/server: {}
