@@ -17,7 +17,7 @@ export default defineComponent(() => {
           const percent = Math.round(
             (progressEvent.loaded * 100) / progressEvent.total,
           )
-          uploadRef.value?.uploadFilePercent({file:_files[0],percent})
+          uploadRef.value?.uploadFilePercent({ file: _files[0], percent })
         }
       })
       return {
@@ -40,7 +40,7 @@ export default defineComponent(() => {
 
   return () => (
     <div class="w-full h-full flex justify-center items-center bg-emerald-500">
-      <Upload ref={'upload'} requestMethod={handleUpload} theme="file-flow" multiple={true} />
+      <Upload ref="upload" requestMethod={handleUpload} theme="file-flow" multiple={true} />
     </div>
   )
 })

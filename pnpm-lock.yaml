@@ -20,6 +20,9 @@ importers:
       '@hono/zod-validator':
         specifier: ^0.7.0
         version: 0.7.0(hono@4.8.3)(zod@3.25.67)
+      '@orbit/client':
+        specifier: workspace:*
+        version: link:packages/client
       '@orbit/server':
         specifier: workspace:*
         version: link:packages/server
@@ -136,17 +139,19 @@ importers:
         specifier: ^2.2.12
         version: 2.2.12(typescript@5.8.3)
 
-  apps/qwen-server: {}
+  apps/client/minimage-web: {}
 
-  apps/tasker-server: {}
+  apps/server/minimage-server: {}
 
-  apps/​​minimage-server​: {}
+  apps/server/qwen-server: {}
+
+  apps/server/tasker-server: {}
+
+  packages/client: {}
 
   packages/server: {}
 
   packages/tsconfig: {}
-
-  web-apps/minimage-web: {}
 
 packages:
 

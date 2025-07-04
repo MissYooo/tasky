@@ -1,0 +1,10 @@
+{
+  "name": "@orbit/client",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "存放客户端公共资源",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "src/index.ts"
+}

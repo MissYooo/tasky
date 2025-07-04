@@ -27,7 +27,7 @@ export class AxiosHttpClient {
 }
 
 const httpRequest = new AxiosHttpClient({
-  timeout: 500000,
+  timeout: 5000,
 }).request
 
 export default httpRequest

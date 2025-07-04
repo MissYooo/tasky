@@ -2,7 +2,7 @@
   "name": "@orbit/server",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "存放服务端公共资源",
   "author": "",
   "license": "ISC",
   "keywords": [],
