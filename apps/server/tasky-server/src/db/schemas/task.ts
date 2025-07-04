@@ -20,6 +20,3 @@ export const tasksTableRalations = relations(tasksTable, ({ one }) => ({
     references: [usersTable.id],
   }),
 }))
-
-export type TaskSelect = typeof tasksTable.$inferSelect
-export type TaskInsert = typeof tasksTable.$inferInsert

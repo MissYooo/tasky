@@ -1,4 +1,4 @@
-import type { UserInsert } from '@/db/schemas/index.ts'
+import type { UserRegisterSchema } from './schema.ts'
 import { eq } from 'drizzle-orm'
 import { db } from '@/db/connection.ts'
 import { usersTable } from '@/db/schemas/index.ts'
@@ -13,7 +13,7 @@ export const authRepository = {
     return user
   },
   /** 用户注册 */
-  register: async (user: UserInsert) => {
+  register: async (user: UserRegisterSchema) => {
     await db.insert(usersTable).values(user)
   },
 }

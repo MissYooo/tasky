@@ -15,6 +15,8 @@ export const taskEneitySchema = createSelectSchema(tasksTable, {
     schema.transform(_ => dayjs(_).format('YYYY-MM-DD HH:mm:ss')).describe('更新时间'),
 })
 
+export type TaskEneitySchema = z.infer<typeof taskEneitySchema>
+
 // ---任务获取---
 /** 任务获取-zod */
 export const taskGetSchema = taskEneitySchema

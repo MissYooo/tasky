@@ -12,6 +12,8 @@ export const userEneitySchema = createInsertSchema(usersTable, {
   createdAt: schema => schema.describe('创建时间'),
 })
 
+export type UserEneitySchema = z.infer<typeof userEneitySchema>
+
 // ---用户注册---
 /** 用户注册-入参-zod */
 export const userRegisterSchema = userEneitySchema.omit({

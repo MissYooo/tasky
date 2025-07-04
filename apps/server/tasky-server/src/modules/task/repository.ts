@@ -1,12 +1,12 @@
-import type { TaskUpdateSchema } from './schema.ts'
-import type { TaskInsert, TaskSelect, UserSelect } from '@/db/schemas/index.ts'
+import type { UserEneitySchema } from '../auth/schema.ts'
+import type { TaskAddSchema, TaskEneitySchema, TaskUpdateSchema } from './schema.ts'
 import { and, eq } from 'drizzle-orm'
 import { db } from '@/db/connection.ts'
 import { tasksTable } from '@/db/schemas/index.ts'
 
 export const taskRepository = {
   /** 获取单个任务 */
-  getTask: async ({ id, userId }: Pick<TaskSelect, 'id' | 'userId'>) => {
+  getTask: async ({ id, userId }: Pick<TaskEneitySchema, 'id' | 'userId'>) => {
     const [task] = await db
       .select()
       .from(tasksTable)
@@ -14,18 +14,20 @@ export const taskRepository = {
     return task
   },
   /** 获取所有任务 */
-  getAllTasks: async (userId: UserSelect['id']) => {
+  getAllTasks: async (userId: UserEneitySchema['id']) => {
     return await db
       .select()
       .from(tasksTable)
       .where(eq(tasksTable.userId, userId))
   },
   /** 添加任务 */
-  addTask: async (task: TaskInsert) => {
+  addTask: async (task: TaskAddSchema & {
+    userId: UserEneitySchema['id']
+  }) => {
     await db.insert(tasksTable).values(task)
   },
   /** 更新任务 */
-  updateTask: async (id: TaskSelect['id'], task: Partial<TaskUpdateSchema>) => {
+  updateTask: async (id: TaskEneitySchema['id'], task: Partial<TaskUpdateSchema>) => {
     await db
       .update(tasksTable)
       .set({
@@ -35,7 +37,7 @@ export const taskRepository = {
       .where(eq(tasksTable.id, id))
   },
   /** 删除任务 */
-  removeTask: async (id: TaskSelect['id']) => {
+  removeTask: async (id: TaskEneitySchema['id']) => {
     await db.delete(tasksTable).where(eq(tasksTable.id, id))
   },
 }

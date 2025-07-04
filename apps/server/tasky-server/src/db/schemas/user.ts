@@ -22,6 +22,3 @@ export const usersTable = mysqlTable('users_table', {
 export const usersTableRalations = relations(usersTable, ({ many }) => ({
   tasks: many(tasksTable),
 }))
-
-export type UserSelect = typeof usersTable.$inferSelect
-export type UserInsert = typeof usersTable.$inferInsert
