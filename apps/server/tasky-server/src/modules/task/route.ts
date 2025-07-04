@@ -8,6 +8,7 @@ export const taskRoute = {
     path: '/',
     method: 'get',
     tags: ['任务'],
+    summary: '获取所有',
     responses: {
       200: {
         content: {
@@ -15,7 +16,7 @@ export const taskRoute = {
             schema: ApiJSONResponseSchema(z.array(taskGetSchema)),
           },
         },
-        description: '获取所有任务',
+        description: '',
       },
     },
   }),
@@ -23,6 +24,7 @@ export const taskRoute = {
     path: '/:id',
     method: 'get',
     tags: ['任务'],
+    summary: '获取单个',
     request: {
       params: z.object({
         id: z.string().describe('任务id'),
@@ -35,7 +37,7 @@ export const taskRoute = {
             schema: ApiJSONResponseSchema(taskGetSchema),
           },
         },
-        description: '获取指定任务',
+        description: '',
       },
     },
   }),
@@ -43,6 +45,7 @@ export const taskRoute = {
     path: '/',
     method: 'post',
     tags: ['任务'],
+    summary: '新增',
     request: {
       body: {
         content: {
@@ -59,7 +62,7 @@ export const taskRoute = {
             schema: ApiJSONResponseSchema(z.null()),
           },
         },
-        description: '新增任务',
+        description: '',
       },
     },
   }),
@@ -67,6 +70,7 @@ export const taskRoute = {
     path: '/:id',
     method: 'put',
     tags: ['任务'],
+    summary: '修改',
     request: {
       params: z.object({
         id: z.string(),
@@ -86,7 +90,7 @@ export const taskRoute = {
             schema: ApiJSONResponseSchema(z.null()),
           },
         },
-        description: '更新任务',
+        description: '',
       },
     },
   }),
@@ -94,6 +98,7 @@ export const taskRoute = {
     path: '/:id',
     method: 'delete',
     tags: ['任务'],
+    summary: '删除',
     request: {
       params: z.object({
         id: z.string().describe('任务id'),
@@ -106,7 +111,7 @@ export const taskRoute = {
             schema: ApiJSONResponseSchema(z.null()),
           },
         },
-        description: '删除任务',
+        description: '',
       },
     },
   }),

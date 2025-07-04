@@ -14,13 +14,11 @@
     "tasky": "pnpm -F @orbit/taskyserver"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.4",
+    "@hono/node-server": "^1.15.0",
     "@hono/swagger-ui": "^0.5.2",
     "@hono/zod-openapi": "1.0.0-beta.1",
-    "@hono/zod-validator": "^0.7.0",
     "@orbit/client": "workspace:*",
     "@orbit/server": "workspace:*",
-    "@scalar/hono-api-reference": "^0.9.7",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
     "dayjs": "^1.11.13",
@@ -37,7 +35,7 @@
     "tdesign-vue-next": "^1.14.2",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1",
-    "zod": "^3.25.67"
+    "zod": "^3.25.72"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.16.2",
@@ -57,7 +55,7 @@
     "tsup": "^8.5.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "vite": "^7.0.0",
+    "vite": "^7.0.2",
     "vue-tsc": "^2.2.12"
   }
 }

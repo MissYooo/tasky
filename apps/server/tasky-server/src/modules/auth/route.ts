@@ -8,6 +8,7 @@ export const userRoute = {
     path: '/register',
     method: 'post',
     tags: ['用户'],
+    summary: '注册',
     request: {
       body: {
         content: {
@@ -25,7 +26,7 @@ export const userRoute = {
             schema: ApiJSONResponseSchema(z.null()),
           },
         },
-        description: '用户注册',
+        description: '',
       },
     },
 
@@ -34,6 +35,7 @@ export const userRoute = {
     path: '/login',
     method: 'post',
     tags: ['用户'],
+    summary: '登录',
     request: {
       body: {
         content: {
@@ -51,7 +53,7 @@ export const userRoute = {
             schema: ApiJSONResponseSchema(z.string()),
           },
         },
-        description: '用户登录',
+        description: '',
       },
     },
 
